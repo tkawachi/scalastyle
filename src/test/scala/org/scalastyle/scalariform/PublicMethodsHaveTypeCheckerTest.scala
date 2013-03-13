@@ -56,6 +56,17 @@ class OK {
     assertErrors(List(columnError(5, 6), columnError(7, 6), columnError(13, 6), columnError(15, 54),
                         columnError(16, 6), columnError(16, 58), columnError(17, 6), columnError(17, 57)), source)
   }
+  
+  @Test def testProcedureOK() {
+    val source = """
+class OK {
+  def procedure1 {}
+  def procedure2() {}
+  def procedure3(i: Int) {}
+}
+""";
+    assertErrors(List(), source)
+  }
 
   @Test def testConstructor() {
     val source = """
